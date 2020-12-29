@@ -1,7 +1,7 @@
 const sqlite3 = require('sqlite3').verbose();
 const db = new sqlite3.Database('./notes.db');
 
-db.serialize(function(){
+db.serialize(() => {
     
     //Criar a Tabela
     db.run(`
@@ -11,51 +11,6 @@ db.serialize(function(){
             description TEXT NOT NULL
         ); 
     `);
-
-    /*Inserir Dados Na Tabela
-    const query = `
-    INSERT INTO ideas(
-        image,
-        title,
-        category,
-        description,
-        link
-    )
-    VALUES (?,?,?,?,?);
-    `
-
-    const values = [
-        'https://www.flaticon.com/svg/static/icons/svg/2729/2729007.svg',
-        'Cursos de Programação',
-        'Estudo',
-        'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium consectetur alias rerum, eligendi necessitatibus ',
-        'https://rocketseat.com.br/'
-    ]
-
-    
-    db.run(query,values, function(err){
-        if (err) return console.log(err)
-
-        console.log(this)
-    })
-    */
-
-    /* Deletar um dado na Tabela
-    db.run(`DELETE FROM ideas WHERE id = ?`,[3], function(err){
-        if(err) return console.log(err)
-
-        console.log('Deletei', this)
-    })
-    */
-    
-    
-    /*Consultar Dados na Tabela
-    db.all(`SELECT * FROM ideas`,function(err,rows){
-        if (err) return console.log(err)
-
-        console.log(rows)
-    })
-    */
 
 })
 
@@ -118,4 +73,3 @@ db.updateData = (data) => {
 }
 
 module.exports = db;
-
