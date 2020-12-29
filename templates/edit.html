@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block title %}Edit Note{% endblock %}
+
+{% block content %}
+    <form class="form_create" action="/edit/{{ note.id}}" method="post" >
+        <h3>Update a note</h3>
+        <label class="form_create-label" for="name">Name</label>
+        <input class="form_create-input" type="text" name="name"  maxlength="100" value="{{ note.name }}">
+        <label  class="form_create-label" for="description">Description</label>
+        <textarea class="form_create-textarea" type="text" name="description" maxlength="100">{{ note.description }}</textarea>
+        <button class="form_create-button" type="submit">Submit</button>
+    </form>
+{% endblock %}

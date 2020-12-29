@@ -1,0 +1,65 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border:none;
+    font-family: 'Roboto', sans-serif;
+}
+
+body,html{
+    height: 100vh;
+}
+
+.form_create,.notes{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap:20px;
+}
+
+.notes{
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+}
+
+.form_create-label,.form_create h3,.note{
+    background:rgb(193, 188, 8);
+    color:#fff;
+    padding:10px;
+    margin:5px
+}
+
+.note{
+    min-width:200px;
+    max-width: 400px;
+}
+
+.delete-button,.edit-link{
+    padding:10px;
+    color: #11f;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration:none;
+    background:white;
+}
+
+.form_create-input,.form_create-textarea{
+    padding:10px;
+    border:1px solid rgba(213, 208, 78,.8);
+    transition:300ms;
+}
+
+.form_create-input:focus,.form_create-textarea:focus{
+    border:1px solid rgb(193, 188, 8);
+}
+
+.form_create-button{
+    max-width: 100px;
+    padding:10px;
+    background:rgb(180, 170, 1);
+    color:#eee;
+    cursor: pointer;
+}
+

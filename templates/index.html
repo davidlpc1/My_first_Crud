@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}View Notes{% endblock %}
+
+{% block content %}
+    <div class="notes">
+        {% for note in notes %}
+            <div data-id="{{ note.id }}"class="note">
+                <p class="name-note">- Name:<br />&nbsp;&nbsp;&nbsp;&nbsp; {{ note.name }}</p>
+                <p class="description-note">- Description:<br /> &nbsp;&nbsp;&nbsp;&nbsp; {{ note.description }}</p>
+                <button class="delete-button">Delete</button>
+                <a class="edit-link" href="/edit/{{ note.id }}">Edit</a>
+            </div>
+        {% endfor %}
+    </div>
+
+    <form class="form_create" action="/" method="POST" >
+        <h3>Create a note</h3>
+        <label class="form_create-label" for="name">Name</label>
+        <input class="form_create-input" type="text" name="name"  maxlength="100">
+        <label  class="form_create-label" for="description">Description</label>
+        <textarea class="form_create-textarea" type="text" name="description" maxlength="100"></textarea>
+        <button class="form_create-button" type="submit">Submit</button>
+    </form>
+{% endblock %}

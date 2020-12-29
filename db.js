@@ -24,6 +24,16 @@ db.findAll = () => {
     })
 }
 
+db.findOne = (id) => {
+    return new Promise((resolve,reject) => {
+        db.all(`SELECT * FROM notes WHERE id=?`,[id],(error,rows) => {
+            if(error) reject(error)
+    
+            resolve(rows)
+        })
+    })
+}
+
 db.insertData = (data) => {
     return new Promise((resolve,reject) => {
         const query = `
@@ -48,16 +58,6 @@ db.deleteNote = (id) => {
             if(error) return reject(error)
     
             resolve(`I have deleted the note with id ${id}`)
-        })
-    })
-}
-
-db.deleteAll = () => {
-    return new Promise((resolve,reject) => {
-        db.run(`DELETE FROM notes`,error=>{
-            if(error) return reject(error)
-    
-            resolve('I have deleted all notes')
         })
     })
 }
